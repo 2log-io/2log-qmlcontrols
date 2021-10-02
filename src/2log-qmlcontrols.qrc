@@ -1,0 +1,79 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/UIControls/Assets/Fonts/SimplonMono-Light.otf</file>
+        <file>qml/UIControls/Assets/Fonts/SimplonMono-Medium.otf</file>
+        <file>qml/UIControls/Assets/Fonts/SimplonMono-Regular.otf</file>
+        <file>qml/UIControls/Assets/Fonts/SimplonNorm-Bold.otf</file>
+        <file>qml/UIControls/Assets/Fonts/SimplonNorm-Light.otf</file>
+        <file>qml/UIControls/Assets/Fonts/SimplonNorm-Medium.otf</file>
+        <file>qml/UIControls/Assets/Fonts/SimplonNorm-Regular.otf</file>
+        <file alias="bandsaegeIcon">qml/UIControls/Assets/Icons/Bandsaege.svg</file>
+        <file alias="plotterIcon">qml/UIControls/Assets/Icons/Folienschneider.svg</file>
+        <file alias="heiszdraht">qml/UIControls/Assets/Icons/Heiszdraht.svg</file>
+        <file alias="lasercutterIcon">qml/UIControls/Assets/Icons/Lasercutter.svg</file>
+        <file alias="plattenfraeseIcon">qml/UIControls/Assets/Icons/Plattenfraese.svg</file>
+        <file alias="standbohrerIcon">qml/UIControls/Assets/Icons/Standbohrer.svg</file>
+        <file alias="tellerschleiferIcon">qml/UIControls/Assets/Icons/Tellerschleifer.svg</file>
+        <file alias="tischkreissaegeIcon">qml/UIControls/Assets/Icons/Tischkreissaege.svg</file>
+        <file>qml/UIControls/Assets/Pics/Flex_white.svg</file>
+        <file>qml/UIControls/Assets/Pics/Laser_white.svg</file>
+        <file alias="switch_line_svg">qml/UIControls/Assets/Pics/Linie_Switch_white.svg</file>
+        <file alias="dot_line_svg">qml/UIControls/Assets/Pics/Linien_Dot.svg</file>
+        <file alias="spinner_logo">qml/UIControls/Assets/Pics/Logo_spinner.svg</file>
+        <file>qml/UIControls/Assets/Pics/Schneidplotter_white.svg</file>
+        <file>qml/UIControls/Assets/Pics/Ultimaker_white.svg</file>
+        <file>qml/UIControls/Controls/CalendarWidget.qml</file>
+        <file>qml/UIControls/Controls/CheckBox.qml</file>
+        <file>qml/UIControls/Controls/DropDown.qml</file>
+        <file>qml/UIControls/Controls/DynamicGridView.qml</file>
+        <file>qml/UIControls/Controls/FlyoutBox.qml</file>
+        <file>qml/UIControls/Controls/Form.qml</file>
+        <file>qml/UIControls/Controls/FormDropDownItem.qml</file>
+        <file>qml/UIControls/Controls/FormTextItem.qml</file>
+        <file>qml/UIControls/Controls/HeaderButton.qml</file>
+        <file>qml/UIControls/Controls/IconButton.qml</file>
+        <file>qml/UIControls/Controls/InfoDialog.qml</file>
+        <file>qml/UIControls/Controls/ListView.qml</file>
+        <file>qml/UIControls/Controls/OptionChooser.qml</file>
+        <file>qml/UIControls/Controls/PushButton.qml</file>
+        <file>qml/UIControls/Controls/RadioGroupButton.qml</file>
+        <file>qml/UIControls/Controls/StandardButton.qml</file>
+        <file>qml/UIControls/Controls/TabButton.qml</file>
+        <file>qml/UIControls/Controls/TextField.qml</file>
+        <file>qml/UIControls/Controls/ToggleSwitch.qml</file>
+        <file>qml/UIControls/Controls/UserButton.qml</file>
+        <file>qml/UIControls/Controls/ViewActionButton.qml</file>
+        <file>qml/UIControls/Helper/BaseDelegate.qml</file>
+        <file>qml/UIControls/Helper/CardReader.qml</file>
+        <file>qml/UIControls/Helper/CounterBubble.qml</file>
+        <file>qml/UIControls/Helper/Defines.qml</file>
+        <file>qml/UIControls/Helper/DropDownChooser.qml</file>
+        <file>qml/UIControls/Helper/FlyoutHelper.qml</file>
+        <file>qml/UIControls/Helper/HelperFunctions.qml</file>
+        <file>qml/UIControls/Helper/Icon.qml</file>
+        <file>qml/UIControls/Helper/InfoBubble.qml</file>
+        <file>qml/UIControls/Helper/RoundGravatarImage.qml</file>
+        <file>qml/UIControls/Helper/Shadow.qml</file>
+        <file>qml/UIControls/Helper/TextLabel.qml</file>
+        <file>qml/UIControls/Helper/TimeFormatter.qml</file>
+        <file>qml/UIControls/Styling/Colors.qml</file>
+        <file>qml/UIControls/Styling/DebugImage.qml</file>
+        <file>qml/UIControls/Styling/Fonts.qml</file>
+        <file>qml/UIControls/Styling/Icons.qml</file>
+        <file>qml/UIControls/IconButton.qml</file>
+        <file>qml/UIControls/qmldir</file>
+        <file>qml/UIControls/README.md</file>
+        <file>qml/UIControls/Controls/LoadingIndicator.qml</file>
+        <file>qml/UIControls/Controls/FormCheckboxItem.qml</file>
+        <file>qml/UIControls/Controls/Stack.qml</file>
+        <file>qml/UIControls/Controls/TooltipFlyout.qml</file>
+        <file>qml/UIControls/Controls/LogoSpinner.qml</file>
+        <file>qml/UIControls/Assets/Fonts/Font Awesome 5 Free-Solid-900.otf</file>
+        <file>qml/UIControls/Controls/HelpTextFlyout.qml</file>
+        <file>qml/UIControls/Controls/ComboBox.qml</file>
+        <file>qml/UIControls/Controls/FormComboItem.qml</file>
+        <file>qml/UIControls/Controls/BigActionButton.qml</file>
+        <file>qml/UIControls/Controls/BigPriceActionButton.qml</file>
+        <file>qml/UIControls/Assets/Pics/Logo-2logio.svg</file>
+    </qresource>
+</RCC>

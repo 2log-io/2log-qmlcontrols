@@ -1,0 +1,63 @@
+module UIControls
+
+## Styling
+## -------
+
+singleton Colors 1.0            Styling/Colors.qml
+singleton Fonts 1.0             Styling/Fonts.qml
+singleton Icons 1.0             Styling/Icons.qml
+
+
+## Controls
+## --------
+
+CheckBox 1.0                Controls/CheckBox.qml
+IconButton 1.0              Controls/IconButton.qml
+PushButton 1.0              Controls/PushButton.qml
+TextField 1.0               Controls/TextField.qml
+StandardButton 1.0          Controls/StandardButton.qml
+HeaderButton 1.0            Controls/HeaderButton.qml
+
+Form 1.0                    Controls/Form.qml
+DropDown 1.0                Controls/DropDown.qml
+ComboBox 1.0                Controls/ComboBox.qml
+FormTextItem 1.0            Controls/FormTextItem.qml
+FormDropDownItem 1.0        Controls/FormDropDownItem.qml
+FormComboItem 1.0           Controls/FormComboItem.qml
+FormCheckItem 1.0           Controls/FormCheckboxItem.qml
+TabButton 1.0               Controls/TabButton.qml
+ToggleSwitch 1.0            Controls/ToggleSwitch.qml
+DynamicGridView 1.0         Controls/DynamicGridView.qml
+FlyoutBox 1.0               Controls/FlyoutBox.qml
+OptionChooser 1.0           Controls/OptionChooser.qml
+ViewActionButton 1.0        Controls/ViewActionButton.qml
+UserButton 1.0              Controls/UserButton.qml
+LoadingIndicator 1.0        Controls/LoadingIndicator.qml
+CalendarWidget 1.0          Controls/CalendarWidget.qml
+ListView 1.0                Controls/ListView.qml
+Stack 1.0                   Controls/Stack.qml
+#--> working
+TooltipFlyout 1.0           Controls/TooltipFlyout.qml
+InfoDialog 1.0              Controls/InfoDialog.qml
+RadioGroupButton 1.0        Controls/RadioGroupButton.qml
+LogoSpinner 1.0             Controls/LogoSpinner.qml
+HelpTextFlyout 1.0          Controls/HelpTextFlyout.qml
+BigActionButton 1.0         Controls/BigActionButton.qml
+BigPriceActionButton 1.0    Controls/BigPriceActionButton.qml
+
+
+## Helper
+## ------
+singleton HelperFunctions 1.0         Helper/HelperFunctions.qml
+InfoBubble 1.0              Helper/InfoBubble.qml
+Shadow 1.0                  Helper/Shadow.qml
+CounterBubble 1.0           Helper/CounterBubble.qml
+TimeFormatter 1.0           Helper/TimeFormatter.qml
+CardReader 1.0              Helper/CardReader.qml
+FlyoutHelper 1.0            Helper/FlyoutHelper.qml
+RoundGravatarImage 1.0      Helper/RoundGravatarImage.qml
+#--> working
+
+TextLabel 1.0               Helper/TextLabel.qml
+Icon 1.0                    Helper/Icon.qml
+BaseDelegate 1.0            Helper/BaseDelegate.qml
