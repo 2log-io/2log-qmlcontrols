@@ -28,7 +28,6 @@ Item
     property int state
     property string mapping
     property string lastCardID
-    onMappingChanged: console.log("MAPPING:" + mapping);
     Component.onCompleted: if(isMobile) nfcReader.startRead()
 
     SynchronizedObjectModel
