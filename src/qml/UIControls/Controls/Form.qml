@@ -151,7 +151,7 @@ Item
             Connections
             {
                 target: item
-                onTextChanged:
+                function onTextChanged()
                 {
                     item.dirty = ( textField.text !== item.text )
                     checkDirty()
@@ -227,7 +227,7 @@ Item
             Connections
             {
                 target: item
-                onSelectedIndexChanged:
+                function onSelectedIndexChanged()
                 {
                     item.dirty = ( selectedIndex !== item.selectedIndex )
                     checkDirty()

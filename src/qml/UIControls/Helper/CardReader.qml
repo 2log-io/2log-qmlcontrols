@@ -39,7 +39,7 @@ Item
         {
             var mapping = settingsModel.selectedReader
             if(mapping !== "")
-                docroot.mapping = Qt.binding(function(){return settingsModel.selectedReader})
+                docroot.mapping = Qt.binding(function(){return settingsModel.selectedReader === undefined ? "" : settingsModel.selectedReader})
         }
     }
 
