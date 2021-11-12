@@ -44,7 +44,7 @@ Item
     property bool lineOnHover: false
     property bool centerPlaceholder: false
     property alias placeholderLabel: placeholderLabel
-
+    property alias font: input.font
     function showErrorAnimation()
     {
         errorAnimation.start();
