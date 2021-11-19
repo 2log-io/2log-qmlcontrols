@@ -51,7 +51,7 @@ Item
         spacing:10
         RoundGravatarImage
         {
-            eMail: QuickHub.currentUser.userData === undefined ? "" : QuickHub.currentUser.eMail
+            eMail: UserLogin.currentUser.userData === undefined ? "" : UserLogin.currentUser.eMail
             width: 35
             height: 35
         }
@@ -63,9 +63,9 @@ Item
             anchors.verticalCenter: parent.verticalCenter
             text:
             {
-                var name = QuickHub.currentUser.userName
+                var name = UserLogin.currentUser.userName
                 if( name === "")
-                    name =  QuickHub.currentUser.userID
+                    name =  UserLogin.currentUser.userID
                 return name ? name : ""
             }
         }
