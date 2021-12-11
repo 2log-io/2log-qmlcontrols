@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,8 +16,6 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.14
 import UIControls 1.0
 
@@ -23,8 +23,7 @@ ListView {
 
     property bool showScrollableIndication: false
 
-    Rectangle
-    {
+    Rectangle {
         z: 10
         anchors.top: parent.top
         height: 20
@@ -32,13 +31,18 @@ ListView {
         opacity: 1
         visible: parent.contentY > 0 && showScrollableIndication
         gradient: Gradient {
-                 GradientStop { position: 0.0; color: Colors.darkBlue }
-                 GradientStop { position: 1.0; color: "transparent" }
-             }
+            GradientStop {
+                position: 0.0
+                color: Colors.darkBlue
+            }
+            GradientStop {
+                position: 1.0
+                color: "transparent"
+            }
+        }
     }
 
-    Rectangle
-    {
+    Rectangle {
         z: 10
         anchors.bottom: parent.bottom
         visible: showScrollableIndication
@@ -46,8 +50,14 @@ ListView {
         width: parent.width
         opacity: 1
         gradient: Gradient {
-                 GradientStop { position: 1.0; color: Colors.darkBlue }
-                 GradientStop { position: 0.0; color: "transparent" }
-             }
+            GradientStop {
+                position: 1.0
+                color: Colors.darkBlue
+            }
+            GradientStop {
+                position: 0.0
+                color: "transparent"
+            }
+        }
     }
 }

@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,13 +16,10 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import ControlLibrary 1.0
 
-Item
-{
+Item {
     id: docroot
 
     height: 52
@@ -29,63 +28,52 @@ Item
     property bool enabled
 
     property string text: "Hallo"
-    signal clicked()
+    signal clicked
 
-    Rectangle
-    {
+    Rectangle {
         id: background
         anchors.fill: parent
-        color:Colors.es_blue
+        color: Colors.es_blue
     }
 
-    TextLabel
-    {
+    TextLabel {
         anchors.centerIn: parent
         color: Colors.es_white
         text: docroot.text.toUpperCase()
         fontSize: 20
     }
 
-    MouseArea
-    {
+    MouseArea {
         id: mouseArea
         enabled: docroot.enabled
         anchors.fill: parent
         onClicked: docroot.clicked()
     }
 
-    states:
-    [
-        State
-        {
-            name:"disabled"
+    states: [
+        State {
+            name: "disabled"
             when: !docroot.enabled
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: background
                 opacity: 0.5
             }
         },
-        State
-        {
-            name:"pressed"
+        State {
+            name: "pressed"
             when: mouseArea.pressed
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: background
-                color:"black"
+                color: "black"
             }
         }
     ]
 
-    transitions:
-    [
-        Transition
-        {
-            from:"pressed"
-            NumberAnimation
-            {
-                property:"opacity"
+    transitions: [
+        Transition {
+            from: "pressed"
+            NumberAnimation {
+                property: "opacity"
                 target: background
             }
         }

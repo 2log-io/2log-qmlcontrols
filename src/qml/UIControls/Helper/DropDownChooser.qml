@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,70 +16,54 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 
-ListView
-{
+ListView {
     id: docroot
 
-    showScrollableIndication:false
+    showScrollableIndication: false
     signal clicked(int index, string text)
-    property int fontSize:  Fonts.contentFontSize
+    property int fontSize: Fonts.contentFontSize
     property int selectedIndex: -1
     property int padding: 5
-    //model: docroot.options
 
-    delegate:
-    Item
-    {
+    delegate: Item {
         id: delegate
         width: parent.width
         height: 30
-       // color: "transparent"
 
-        Rectangle
-        {
+        // color: "transparent"
+        Rectangle {
             anchors.fill: parent
             opacity: 0
             id: background
         }
 
-        TextLabel
-        {
+        TextLabel {
             id: label
             anchors.left: parent.left
             anchors.leftMargin: docroot.padding
             anchors.verticalCenter: parent.verticalCenter
             fontSize: docroot.fontSize
-            text: modelData ==undefined ? "" : modelData
+            text: modelData == undefined ? "" : modelData
             color: Colors.grey
         }
 
-        MouseArea
-        {
+        MouseArea {
             id: delegateArea
             anchors.fill: parent
             hoverEnabled: true
-            onClicked:
-            {
+            onClicked: {
                 docroot.clicked(index, label.text)
                 docroot.selectedIndex = index
-//                docroot.indexClicked(index)
-//                popup.close()
             }
         }
 
-
-
-        states:
-        [
-            State
-            {
-                name:"selected"
-                when: index  == docroot.selectedIndex
+        states: [
+            State {
+                name: "selected"
+                when: index == docroot.selectedIndex
 
                 PropertyChanges {
                     target: label
@@ -90,9 +76,8 @@ ListView
                 }
             },
 
-            State
-            {
-                name:"hovered"
+            State {
+                name: "hovered"
                 when: delegateArea.containsMouse
 
                 PropertyChanges {

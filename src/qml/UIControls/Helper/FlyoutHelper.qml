@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,14 +16,11 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.7
 import QtGraphicalEffects 1.0
 import UIControls 1.0
 
-Rectangle
-{
+Rectangle {
     id: docroot
     property real triangleSide
     property real triangleHeight: 8
@@ -32,22 +31,18 @@ Rectangle
     property real borderWidth: 1
     property real shadowSizeVar: 4
     property alias shadowOpacity: shadow.opacity
-//    onTriangleDeltaChanged:  canvas.requestPaint()
-//    onTriangleSideChanged: canvas.requestPaint()
-//    onTriangleHeightChanged: canvas.requestPaint()
-//    onWidthChanged: canvas.requestPaint()
-//    onHeightChanged: canvas.requestPaint()
 
-    Shadow{
+    Shadow {
         id: shadow
         shadowSize: shadowSizeVar
     }
 
-    FlyoutPainter
-    {
+    FlyoutPainter {
         id: canvas
-        width: parent.width + ((triangleSide == Qt.RightEdge || triangleSide == Qt.LeftEdge) ? triangleHeight : 0)
-        height: parent.height + ((triangleSide == Qt.TopEdge || triangleSide == Qt.BottomEdge) ? triangleHeight : 0)
+        width: parent.width + ((triangleSide == Qt.RightEdge
+                                || triangleSide == Qt.LeftEdge) ? triangleHeight : 0)
+        height: parent.height + ((triangleSide == Qt.TopEdge
+                                  || triangleSide == Qt.BottomEdge) ? triangleHeight : 0)
         triangleDelta: docroot.triangleDelta
         triangleHeight: docroot.triangleHeight
         borderColor: docroot.borderColor
@@ -55,83 +50,16 @@ Rectangle
         fillColor: docroot.fillColor
         triangleSide: docroot.triangleSide
 
-        y:
-        {
-         if(triangleSide == Qt.TopEdge)
-             return -triangleHeight;
-         return 0
+        y: {
+            if (triangleSide == Qt.TopEdge)
+                return -triangleHeight
+            return 0
         }
 
-        x:
-        {
-        if(triangleSide == Qt.LeftEdge)
-            return -triangleHeight;
-        return 0
+        x: {
+            if (triangleSide == Qt.LeftEdge)
+                return -triangleHeight
+            return 0
         }
-
-//        onPaint:
-//        {
-//            var ctx = canvas.getContext('2d')
-//            ctx.save()
-//            ctx.clearRect(0, 0, canvas.width+1, canvas.height+1);
-//            ctx.beginPath()
-
-//            if(docroot.triangleSide == Qt.TopEdge)
-//            {
-//                ctx.moveTo(-1.0 ,triangleHeight-1.0);
-//                ctx.lineTo(triangleDelta, triangleHeight-1.0);   //  _
-//                ctx.lineTo(triangleDelta+triangleHeight, 1.0)      //    /
-//                ctx.lineTo(triangleDelta+2*triangleHeight, triangleHeight-1.0) // \
-//                ctx.lineTo(docroot.width-1.0, triangleHeight-1.0) // _
-//                ctx.lineTo(docroot.width-1.0, triangleHeight+docroot.height-1.0)
-//                ctx.lineTo(1.0, triangleHeight+docroot.height-1.0)
-//                ctx.lineTo(1.0, triangleHeight)
-//            }
-
-//            else if (docroot.triangleSide == Qt.LeftEdge)
-//            {
-//                ctx.moveTo(triangleHeight-1, 1);
-//                ctx.lineTo(triangleHeight-1+docroot.width, 1);   //  _
-//                ctx.lineTo(triangleHeight-1+docroot.width, docroot.height-1)      //    /
-//                ctx.lineTo(triangleHeight-1, docroot.height-1);
-//                ctx.lineTo(triangleHeight-1, triangleDelta + triangleHeight);
-//                ctx.lineTo(1,triangleDelta);
-//                ctx.lineTo(triangleHeight-1, triangleDelta - triangleHeight);
-//                ctx.lineTo(triangleHeight-1, 1);
-//            }
-
-//            else if(docroot.triangleSide == Qt.BottomEdge)
-//            {
-//                ctx.moveTo(1, 1);
-//                ctx.lineTo(docroot.width -1, 1);
-//                ctx.lineTo(docroot.width -1, docroot.height-1);
-//                ctx.lineTo(docroot.triangleDelta+triangleHeight, docroot.height-1)
-//                ctx.lineTo(docroot.triangleDelta, docroot.height-1+triangleHeight)
-//                ctx.lineTo(docroot.triangleDelta-triangleHeight, docroot.height-1)
-//                ctx.lineTo(1, docroot.height-1)
-//                ctx.lineTo(1,1)
-//            }
-
-//            else if(docroot.triangleSide == Qt.RightEdge)
-//            {
-//                ctx.moveTo(1, 1);
-//                ctx.lineTo(docroot.width -1, 1);
-//                ctx.lineTo(docroot.width -1, triangleDelta-triangleHeight);
-//                ctx.lineTo(docroot.width -1 + triangleHeight, triangleDelta);
-//                ctx.lineTo(docroot.width -1, triangleDelta+triangleHeight);
-//                ctx.lineTo(docroot.width -1, docroot.height-1);
-//                ctx.lineTo(1, docroot.height-1)
-//                ctx.lineTo(1,1)
-//            }
-
-//            ctx.closePath()
-
-//            ctx.fillStyle = docroot.fillColor
-//            ctx.lineWidth = borderWidth
-//            ctx.strokeStyle = docroot.borderColor
-
-//            ctx.fill();
-//            ctx.stroke();
-//        }
     }
 }

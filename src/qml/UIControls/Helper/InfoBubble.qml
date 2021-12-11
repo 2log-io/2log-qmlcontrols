@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,31 +16,26 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 
-Rectangle
-{
+Rectangle {
     id: docroot
     property int size: 22
     property int state: 1
-    property color infoColor:Colors.white
+    property color infoColor: Colors.white
     property string icon
     property string image
     property alias iconSize: icon.iconSize
-  //  property bool rotate: false
 
     height: size
     width: size
-    radius: size/2
+    radius: size / 2
     border.width: 1
     border.color: infoColor
-    color:  Colors.darkBlue
+    color: Colors.darkBlue
 
-    Icon
-    {
+    Icon {
         id: icon
         iconColor: infoColor
         anchors.centerIn: parent
@@ -46,57 +43,24 @@ Rectangle
         iconSize: Fonts.verySmallControlFontSize
     }
 
-//    Loader
-//    {
-//        id: loader
-//        active: docroot.image !== ""
-//        sourceComponent:
-//        Image
-//        {
-//           source:"qrc:/spinner_logo"
-//        }
-
-
-//    }
-
-//    NumberAnimation
-//    {
-//        target: icon
-//        running: docroot.rotate
-//        property:"rotation"
-//        from: 0
-//        to: 360
-//        loops: Animation.Infinite
-//        duration: 2000
-//        onRunningChanged:  if(!running) icon.rotation = 0
-//    }
-
-    states:
-    [
-        State
-        {
-            name:"ok"
+    states: [
+        State {
+            name: "ok"
             when: docroot.state == 1
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: docroot
                 icon: Icons.check
                 infoColor: Colors.highlightBlue
             }
         },
-        State
-        {
-            name:"info"
+        State {
+            name: "info"
         },
-        State
-        {
-            name:"warning"
+        State {
+            name: "warning"
         },
-        State
-        {
-            name:"error"
+        State {
+            name: "error"
         }
     ]
-
-
 }

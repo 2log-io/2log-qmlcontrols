@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,13 +16,10 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 
-Item
-{
+Item {
 
     id: docroot
 
@@ -31,18 +30,16 @@ Item
     height: parent.height
     width: layout.width + 40
 
-    signal clicked()
+    signal clicked
 
-    Rectangle
-    {
+    Rectangle {
         id: background
         opacity: .05
         anchors.fill: parent
-        color:"transparent"
+        color: "transparent"
     }
 
-    Row
-    {
+    Row {
 
         id: layout
         opacity: .6
@@ -52,20 +49,18 @@ Item
         anchors.leftMargin: 20
         spacing: 20
 
-        Icon
-        {
+        Icon {
             id: icon
             anchors.verticalCenter: parent.verticalCenter
             anchors.verticalCenterOffset: -1
             icon: Icons.user
-            iconSize:  Fonts.smallControlFontSize
+            iconSize: Fonts.smallControlFontSize
             width: 20
             height: 20
-            iconColor:  Colors.grey
+            iconColor: Colors.grey
         }
 
-        TextLabel
-        {
+        TextLabel {
             id: text
             color: Colors.grey
             fontSize: Fonts.subHeaderFontSize
@@ -74,91 +69,74 @@ Item
         }
     }
 
-//    Rectangle
-//    {
-//        id: line
-//        width: parent.width
-//        anchors.top: parent.top
-//        height: 2
-//        visible: false
+    //    Rectangle
+    //    {
+    //        id: line
+    //        width: parent.width
+    //        anchors.top: parent.top
+    //        height: 2
+    //        visible: false
 
-//    }
+    //    }
+    states: [
 
-    states:
-    [
-
-        State
-        {
+        State {
             when: docroot.selected
-            name:"checked"
+            name: "checked"
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: icon
                 iconColor: Colors.highlightBlue
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: layout
                 opacity: 1
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: text
                 color: Colors.white
             }
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: background
                 color: Colors.black
                 opacity: .1
             }
 
-//            PropertyChanges
-//            {
-//                target: line
-//                visible: true
-//                opacity:.5
-//            }
-
+            //            PropertyChanges
+            //            {
+            //                target: line
+            //                visible: true
+            //                opacity:.5
+            //            }
         },
-        State
-        {
-            name:"hover"
+        State {
+            name: "hover"
             when: area.containsMouse
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: background
                 color: Colors.white
             }
         }
     ]
 
-    transitions:
-    [
-        Transition
-        {
-            SequentialAnimation
-            {
-                PropertyAction
-                {
+    transitions: [
+        Transition {
+            SequentialAnimation {
+                PropertyAction {
                     target: background
                     property: "color"
                 }
-                ColorAnimation
-                {
+                ColorAnimation {
                     targets: [icon, text]
                 }
             }
         }
     ]
 
-
-    MouseArea
-    {
+    MouseArea {
         id: area
         anchors.fill: parent
         onClicked: docroot.clicked()

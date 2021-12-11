@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,38 +16,31 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 
-
-Item
-{
+Item {
     property int size
     id: docroot
 
     width: size
     height: size
     property alias backgroundColor: background.color
-    Rectangle
-    {
+    Rectangle {
         id: background
-        radius: size/2
+        radius: size / 2
         anchors.fill: parent
         color: Colors.black
         opacity: .2
     }
 
-    Image
-    {
+    Image {
         id: spinner
-        width: size-2
-        height: size-2
-        source:"qrc:/spinner_logo"
+        width: size - 2
+        height: size - 2
+        source: "qrc:/spinner_logo"
         anchors.centerIn: parent
-        NumberAnimation
-        {
+        NumberAnimation {
             running: true
             target: spinner
             property: "rotation"

@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,60 +16,66 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 
-GridView
-{
+GridView {
     id: layout
 
     property int maxCellWidth: 160
 
     moveDisplaced: Transition {
-          NumberAnimation { properties: "x,y"; duration: 200; easing.type: Easing.OutQuad }
-      }
-
+        NumberAnimation {
+            properties: "x,y"
+            duration: 200
+            easing.type: Easing.OutQuad
+        }
+    }
 
     move: Transition {
-          NumberAnimation { properties: "x,y"; duration: 200; easing.type: Easing.OutQuad }
-      }
+        NumberAnimation {
+            properties: "x,y"
+            duration: 200
+            easing.type: Easing.OutQuad
+        }
+    }
 
     removeDisplaced: Transition {
-        SequentialAnimation
-        {
+        SequentialAnimation {
 
             PauseAnimation {
                 duration: 100
             }
-            NumberAnimation { properties: "x,y"; duration: 200; easing.type: Easing.OutQuad }
+            NumberAnimation {
+                properties: "x,y"
+                duration: 200
+                easing.type: Easing.OutQuad
+            }
         }
     }
 
-    remove: Transition
-    {
-        SequentialAnimation
-        {
+    remove: Transition {
+        SequentialAnimation {
 
-            NumberAnimation { properties: "opacity"; duration: 100; to: 0}
+            NumberAnimation {
+                properties: "opacity"
+                duration: 100
+                to: 0
+            }
         }
     }
 
-    height:
-    {
+    height: {
         var columnCount = Math.floor(width / cellWidth)
         var rowCount = Math.floor(count / columnCount)
-        if(count % columnCount != 0)
-            rowCount ++
+        if (count % columnCount != 0)
+            rowCount++
 
         return cellHeight * rowCount
     }
 
-    cellWidth:
-    {
+    cellWidth: {
         var count = width / maxCellWidth
-        var cellwidth = width/Math.round(count)
+        var cellwidth = width / Math.round(count)
         return cellwidth
     }
-
 }

@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,14 +16,10 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 
-
-Item
-{
+Item {
     id: docroot
     property string timeString
     property string time
@@ -29,9 +27,7 @@ Item
     height: row.height
     onTimeChanged: setTime()
 
-
-    Timer
-    {
+    Timer {
         interval: 1000
         running: true
         repeat: true
@@ -39,42 +35,34 @@ Item
     }
 
     function parseISOLocal(s) {
-      var b = s.split(/\D/);
-      return new Date(b[0], b[1]-1, b[2], b[3], b[4], b[5]);
+        var b = s.split(/\D/)
+        return new Date(b[0], b[1] - 1, b[2], b[3], b[4], b[5])
     }
 
-
-    function setTime()
-    {
+    function setTime() {
         reset()
         var now = new Date()
         var was = parseISOLocal(docroot.time)
-        var delta  =  now.getTime() - was.getTime()
+        var delta = now.getTime() - was.getTime()
 
-
-        if(delta < 60 * 1000)
-        {
-            labelD.text =  "gerade eben"//"vor "+Math.round(delta/1000)+" sek";
-            return;
+        if (delta < 60 * 1000) {
+            labelD.text = "gerade eben" //"vor "+Math.round(delta/1000)+" sek";
+            return
         }
 
-        if(delta < 60 * 60 * 1000)
-        {
+        if (delta < 60 * 60 * 1000) {
             labelC.text = "VOR"
-            labelD.text = Math.round(delta/60/1000)+"m";
-            return;
+            labelD.text = Math.round(delta / 60 / 1000) + "m"
+            return
         }
 
-        if(delta < 3 * 60 * 60 * 1000)
-        {
+        if (delta < 3 * 60 * 60 * 1000) {
             labelC.text = "VOR"
             var hrs = parseInt(delta / 3600000)
-            var min = Math.round((delta % (hrs*3600000)) / 60000)
-            labelD.text = hrs+"h "+ min + "m";
-            return;
-        }
-        else if(now.getDate() === was.getDate())
-        {
+            var min = Math.round((delta % (hrs * 3600000)) / 60000)
+            labelD.text = hrs + "h " + min + "m"
+            return
+        } else if (now.getDate() === was.getDate()) {
             labelC.text = "UM"
             labelD.text = Qt.formatDateTime(docroot.time, "hh:mm")
         }
@@ -91,66 +79,52 @@ Item
         a.setHours(0)
 
         var dayDelta = now.getTime() - a.getTime()
-        var dayDifference  = dayDelta / (24 * 60 * 60 * 1000);
+        var dayDifference = dayDelta / (24 * 60 * 60 * 1000)
 
-        if(dayDifference > 0)
-        {
-            if(dayDifference == 1)
-            {
-                labelB.text= "gestern"
-            }
-            else
-            {
-                labelB.text= Qt.formatDateTime(docroot.time, "dd.MM.yy")
+        if (dayDifference > 0) {
+            if (dayDifference == 1) {
+                labelB.text = "gestern"
+            } else {
+                labelB.text = Qt.formatDateTime(docroot.time, "dd.MM.yy")
             }
 
             labelC.text = "UM"
-            labelD.text =  Qt.formatDateTime(docroot.time, "hh:mm")
-            return;
+            labelD.text = Qt.formatDateTime(docroot.time, "hh:mm")
+            return
         }
-
     }
 
-
-    function reset()
-    {
-        labelA.text=""
-        labelB.text=""
-        labelC.text=""
-        labelD.text=""
+    function reset() {
+        labelA.text = ""
+        labelB.text = ""
+        labelC.text = ""
+        labelD.text = ""
     }
 
-    Row
-    {
+    Row {
         id: row
         spacing: 5
 
-
-
-        TextLabel
-        {
+        TextLabel {
             id: labelA
             fontSize: Fonts.verySmallControlFontSize
             color: Colors.lightGrey
             anchors.verticalCenter: parent.verticalCenter
         }
 
-        TextLabel
-        {
+        TextLabel {
             anchors.verticalCenter: parent.verticalCenter
             fontSize: Fonts.contentFontSize
             id: labelB
         }
 
-        TextLabel
-        {
+        TextLabel {
             anchors.verticalCenter: parent.verticalCenter
             id: labelC
             fontSize: Fonts.verySmallControlFontSize
             color: Colors.lightGrey
         }
-        TextLabel
-        {
+        TextLabel {
             anchors.verticalCenter: parent.verticalCenter
             fontSize: Fonts.contentFontSize
             id: labelD

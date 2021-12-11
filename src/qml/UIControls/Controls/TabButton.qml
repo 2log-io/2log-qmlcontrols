@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,14 +16,11 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 import QtQuick.Controls 2.0
 
-AbstractButton
-{
+AbstractButton {
     id: docroot
 
     opacity: 1
@@ -30,23 +29,20 @@ AbstractButton
     property bool selected
 
     height: parent.height
-    width:  row.width + 26
+    width: row.width + 26
 
-    Rectangle
-    {
+    Rectangle {
         id: background
         anchors.fill: parent
         color: "transparent"
     }
 
-    Row
-    {
+    Row {
         id: row
         spacing: 10
         anchors.centerIn: parent
 
-        TextLabel
-        {
+        TextLabel {
             id: text
             text: docroot.text
             color: Colors.white_op50
@@ -54,56 +50,47 @@ AbstractButton
             fontSize: Fonts.subHeaderFontSize
         }
 
-        CounterBubble
-        {
+        CounterBubble {
             id: bubble
             visible: docroot.bubbleText != ""
             text: docroot.bubbleText
             anchors.verticalCenter: parent.verticalCenter
-            opacity: 1//.5
+            opacity: 1 //.5
         }
     }
 
-    Shadow
-    {
+    Shadow {
         id: shadow
         shadowBottom: false
         visible: false
     }
-    states:
-    [
-        State
-        {
+    states: [
+        State {
             name: "selected"
             when: docroot.checked
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: background
                 color: Colors.darkBlue
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: docroot
-                opacity:1
+                opacity: 1
                 height: docroot.height
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: text
                 color: Colors.white
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: bubble
                 opacity: 1
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: shadow
                 visible: true
             }

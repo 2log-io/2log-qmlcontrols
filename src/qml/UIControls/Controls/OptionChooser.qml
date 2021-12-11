@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,14 +16,11 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 import "../Helper"
 
-FlyoutBox
-{
+FlyoutBox {
     id: docroot
     property var options
     property string label
@@ -29,38 +28,34 @@ FlyoutBox
     property alias chooserWidth: chooser.width
     signal indexClicked(int index)
 
-    width: column.width+4
-    fillColor: docroot.label != "" ? Colors.greyBlue :Qt.darker(Colors.darkBlue, 1.2)
-    height: column.height+10
+    width: column.width + 4
+    fillColor: docroot.label != "" ? Colors.greyBlue : Qt.darker(
+                                         Colors.darkBlue, 1.2)
+    height: column.height + 10
 
-    Rectangle
-    {
-        width: docroot.width-4
+    Rectangle {
+        width: docroot.width - 4
         height: column.height
         color: Qt.darker(Colors.darkBlue, 1.2)
 
-        Column
-        {
+        Column {
             id: column
             spacing: 0
             y: -8
 
-            Rectangle
-            {
+            Rectangle {
                 width: parent.width
                 height: 26
                 color: Colors.greyBlue
                 visible: docroot.label !== ""
 
-                TextLabel
-                {
+                TextLabel {
                     anchors.verticalCenter: parent.verticalCenter
                     x: 10
                     text: docroot.label
                 }
 
-                Rectangle
-                {
+                Rectangle {
                     height: 1
                     anchors.bottom: parent.bottom
                     width: parent.width
@@ -68,13 +63,12 @@ FlyoutBox
                 }
             }
 
-            DropDownChooser
-            {
+            DropDownChooser {
                 id: chooser
                 padding: 10
                 model: docroot.options
                 width: 200
-                height: contentHeight -8
+                height: contentHeight - 8
             }
         }
     }

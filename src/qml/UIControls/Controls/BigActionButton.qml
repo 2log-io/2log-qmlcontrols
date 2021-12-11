@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,45 +16,31 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.0
 import QtQuick.Controls 2.12
 import UIControls 1.0
 
-AbstractButton
-{
+AbstractButton {
     id: docroot
-    Rectangle
-    {
+    Rectangle {
         id: background
         anchors.fill: parent
-        color:Colors.white_op5
-    //   radius: 5
-   //     border.color: Colors.white_op30
+        color: Colors.white_op5
     }
 
-    states:
-    [
-        State
-        {
-            name:"pressed"
+    states: [
+        State {
+            name: "pressed"
             when: docroot.pressed
-            PropertyChanges
-            {
-                target:background
+            PropertyChanges {
+                target: background
                 color: Colors.white_op30
             }
         }
     ]
 
-    transitions:
-    Transition
-    {
-        from:"pressed"
-        ColorAnimation
-        {
-
-        }
+    transitions: Transition {
+        from: "pressed"
+        ColorAnimation {}
     }
 }

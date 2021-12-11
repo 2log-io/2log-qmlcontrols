@@ -1,3 +1,4 @@
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,29 +15,37 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 pragma Singleton
+
 import QtQuick 2.5
 
 Item {
 
-    //property var fontAwesome_brands_regular_loader:    FontLoader{source: "../Assets/Fonts/Font Awesome 5 Brands-Regular-400.otf"}
-    //property var fontAwesome_free_regular_loader:      FontLoader{source: "../Assets/Fonts/Font Awesome 5 Free-Regular-400.otf"}
-    property var fontAwesome_free_solid_loader:        FontLoader{source: "../Assets/Fonts/Font Awesome 5 Free-Solid-900.otf"}
+    property var fontAwesome_free_solid_loader: FontLoader {
+        source: "../Assets/Fonts/Font Awesome 5 Free-Solid-900.otf"
+    }
 
-//    property var simplonNorm_Bold_loader:              FontLoader{source: "../Assets/Fonts/SimplonNorm-Bold.otf"}
-//    property var simplonNorm_BoldItalic_loader:        FontLoader{source: "../Assets/Fonts/SimplonNorm-BoldItalic.otf"}
-//    property var simplonNorm_LightItalic_loader:       FontLoader{source: "../Assets/Fonts/SimplonNorm-Light.otf"}
-     property var simplonNorm_Medium_loader:            FontLoader{source: "../Assets/Fonts/SimplonNorm-Medium.otf"}
-     property var simplonNorm_Regular_loader:            FontLoader{source: "../Assets/Fonts/SimplonNorm-Regular.otf"}
-     property var simplonNorm_Light_loader:             FontLoader{source: "../Assets/Fonts/SimplonNorm-Light.otf"}
-     property var simplonNorm_Bold_loader:              FontLoader{source: "../Assets/Fonts/SimplonNorm-Bold.otf"}
-     property var simplonMono_Medium_loader:              FontLoader{source: "../Assets/Fonts/SimplonMono-Medium.otf"}
-     property var simplonMono_Light_loader:              FontLoader{source: "../Assets/Fonts/SimplonMono-Light.otf"}
-     property var simplonMono_Regular_loader:              FontLoader{source: "../Assets/Fonts/SimplonMono-Regular.otf"}
-//    property var simplonNorm_MediumItalic_loader:      FontLoader{source: "../Assets/Fonts/SimplonNorm-MediumItalic.otf"}
-//    property var simplonNorm_Regular_loader:           FontLoader{source: "../Assets/Fonts/SimplonNorm-Regular.otf"}
+    property var simplonNorm_Medium_loader: FontLoader {
+        source: "../Assets/Fonts/SimplonNorm-Medium.otf"
+    }
+    property var simplonNorm_Regular_loader: FontLoader {
+        source: "../Assets/Fonts/SimplonNorm-Regular.otf"
+    }
+    property var simplonNorm_Light_loader: FontLoader {
+        source: "../Assets/Fonts/SimplonNorm-Light.otf"
+    }
+    property var simplonNorm_Bold_loader: FontLoader {
+        source: "../Assets/Fonts/SimplonNorm-Bold.otf"
+    }
+    property var simplonMono_Medium_loader: FontLoader {
+        source: "../Assets/Fonts/SimplonMono-Medium.otf"
+    }
+    property var simplonMono_Light_loader: FontLoader {
+        source: "../Assets/Fonts/SimplonMono-Light.otf"
+    }
+    property var simplonMono_Regular_loader: FontLoader {
+        source: "../Assets/Fonts/SimplonMono-Regular.otf"
+    }
 
     readonly property var simplonNorm_Medium: simplonNorm_Medium_loader.name
     readonly property var simplonNorm_Regular: simplonNorm_Regular_loader.name
@@ -44,9 +53,6 @@ Item {
     readonly property var simplonMono: simplonMono_Medium_loader.name
 
     readonly property var iconFont: fontAwesome_free_solid_loader.name
-
-
-
 
     readonly property int headerFontSze: 20
     readonly property int subHeaderFontSize: 16
@@ -58,6 +64,4 @@ Item {
     readonly property int bigDisplayFontSize: 36
     readonly property int bigDisplayUnitFontSize: 18
     readonly property int actionFontSize: 24
-
-
 }
