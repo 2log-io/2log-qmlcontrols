@@ -1,3 +1,4 @@
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,9 +15,8 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 pragma Singleton
+
 import QtQuick 2.5
 
 Item {
@@ -28,7 +28,7 @@ Item {
     readonly property string warning: ""
     readonly property string card: ""
     readonly property string loup: ""
-    readonly property string filter:""
+    readonly property string filter: ""
     readonly property string addUser: ""
     readonly property string refresh: ""
     readonly property string minus: ""
@@ -56,21 +56,21 @@ Item {
     readonly property string rightAngle: ""
     readonly property string leftAngle: ""
     readonly property string blizzard: ""
-    readonly property string coins:""
+    readonly property string coins: ""
     readonly property string borrowBox: ""
-    readonly property string admin:""
-    readonly property string logout:""
-    readonly property string lock:""
-    readonly property string eMail:""
-    readonly property string server:""
-    readonly property string swap:""
+    readonly property string admin: ""
+    readonly property string logout: ""
+    readonly property string lock: ""
+    readonly property string eMail: ""
+    readonly property string server: ""
+    readonly property string swap: ""
     readonly property string link: ""
     readonly property string fan: ""
     readonly property string circle: ""
-    readonly property string document:""
-    readonly property string group:""
-    readonly property string uploadFile:""
-    readonly property string downloadFile:""
+    readonly property string document: ""
+    readonly property string group: ""
+    readonly property string uploadFile: ""
+    readonly property string downloadFile: ""
     readonly property string dot: ""
     readonly property string prompt: ""
     readonly property string keyboard: ""
@@ -83,16 +83,15 @@ Item {
     readonly property string earth: ""
     readonly property string offline: ""
     readonly property string payDesk: ""
+    readonly property string banknote: ""
 
-
-readonly property string products: ""
+    readonly property string products: ""
     readonly property string lockOpen: ""
     readonly property string lockClosed: ""
 
     readonly property string wifi: ""
 
-    readonly property string burger:""
-
+    readonly property string burger: ""
 
     readonly property string info: ""
     readonly property string infoRound: ""
@@ -101,12 +100,10 @@ readonly property string products: ""
     //readonly property string warning: ""
 
     //readonly property string card: ""
-
     property int iconSize24: scale(24)
     property int iconSize300: scale(300)
 
-    function scale(val)
-    {
+    function scale(val) {
         return parseInt(val * 1)
     }
 }
