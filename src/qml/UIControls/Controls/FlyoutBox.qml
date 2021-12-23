@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,20 +16,17 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import QtQuick.Layouts 1.3
 import CloudAccess 1.0
 import QtQuick.Controls 2.5
 import UIControls 1.0
 
-Popup
-{
+Popup {
     id: addPopup
-    width: flyoutLayout.width+24
-    height: flyoutLayout.height+24
-    default property alias content:  row.children
+    width: flyoutLayout.width + 24
+    height: flyoutLayout.height + 24
+    default property alias content: row.children
     property alias triangleSide: helper.triangleSide
     property alias fillColor: helper.fillColor
     property alias borderColor: helper.borderColor
@@ -39,12 +38,10 @@ Popup
     y: parent.height + helper.triangleHeight - 4
 
     property bool waiting: false
-    contentItem:
-    FlyoutHelper
-    {
+    contentItem: FlyoutHelper {
         id: helper
         triangleHeight: 12
-        triangleDelta: width/2 - triangleHeight
+        triangleDelta: width / 2 - triangleHeight
         triangleSide: Qt.TopEdge
         fillColor: Qt.darker(Colors.darkBlue, 1.2)
         borderColor: Colors.greyBlue
@@ -53,15 +50,13 @@ Popup
         shadowSizeVar: 8
         anchors.fill: parent
 
-        Column
-        {
+        Column {
             id: flyoutLayout
             anchors.centerIn: parent
             anchors.verticalCenterOffset: addPopup.verticalOffset
             spacing: 10
 
-            Row
-            {
+            Row {
                 spacing: 10
                 id: row
             }

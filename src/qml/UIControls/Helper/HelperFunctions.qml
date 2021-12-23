@@ -1,3 +1,4 @@
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,21 +15,17 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 pragma Singleton
+
 import QtQuick 2.5
 
-Item
-{
+Item {
 
-    function priceTextToInt(val)
-    {
-        return Math.round(parseFloat(val.replace(",","."))*100)
+    function priceTextToInt(val) {
+        return Math.round(parseFloat(val.replace(",", ".")) * 100)
     }
 
-    function formatMillis( millis)
-    {
+    function formatMillis(millis) {
         var minutes = Math.round(millis / 1000 / 60)
         var hours = parseInt(minutes / 60)
         minutes = minutes % 60
@@ -36,7 +33,6 @@ Item
         var time = {}
         time.hours = hours
         time.minutes = minutes
-        return time;
+        return time
     }
-
 }

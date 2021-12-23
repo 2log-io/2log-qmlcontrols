@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,50 +16,44 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
-
 import QtQuick 2.5
 import UIControls 1.0
 
-Rectangle
-{
+Rectangle {
     id: docroot
 
-    property string     icon
-    property color      iconColor:  Colors.highlightBlue
-    property int        iconSize:   20
-    property string     iconFont:   Fonts.iconFont
-    property string     iconUrl
-    property alias      image:      image
+    property string icon
+    property color iconColor: Colors.highlightBlue
+    property int iconSize: 20
+    property string iconFont: Fonts.iconFont
+    property string iconUrl
+    property alias image: image
 
-    width:  iconSize
+    width: iconSize
     height: iconSize
     color: "transparent"
 
-    TextLabel
-    {
+    TextLabel {
         visible: !docroot.iconUrl
         font.family: iconFont
         font.weight: Font.Normal
         font.pixelSize: docroot.iconSize
         id: name
         color: docroot.iconColor
-        anchors.centerIn:  parent
+        anchors.centerIn: parent
         text: docroot.icon
 
-        anchors.verticalCenterOffset:
-        switch (Qt.platform.os)
-        {
-            case "windows": return -2
-            default: return 0
-        }
+        anchors.verticalCenterOffset: switch (Qt.platform.os) {
+                                      case "windows":
+                                          return -2
+                                      default:
+                                          return 0
+                                      }
     }
 
-    Image
-    {
+    Image {
         id: image
-        visible:  iconUrl
+        visible: iconUrl
         anchors.centerIn: docroot
         source: docroot.iconUrl
     }

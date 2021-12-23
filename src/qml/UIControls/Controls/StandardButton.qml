@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,16 +16,13 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 
-Rectangle
-{
+Rectangle {
     id: docroot
 
-    signal clicked()
+    signal clicked
     property bool checkable: false
     property string toolTipText
     property bool loading: false
@@ -44,16 +43,14 @@ Rectangle
 
     border.color: Colors.white_op40
     border.width: hasBorder ? 1 : 0
-    Row
-    {
+    Row {
         id: layout
         height: parent.height
         anchors.centerIn: parent
         spacing: 10
         opacity: .75
 
-        Icon
-        {
+        Icon {
             id: icon
             iconColor: docroot.iconColor
             anchors.verticalCenter: parent.verticalCenter
@@ -64,18 +61,16 @@ Rectangle
             iconSize: docroot.fontSize
         }
 
-        TextLabel
-        {
+        TextLabel {
             id: text
             color: Colors.white
-            text:docroot.text
+            text: docroot.text
             font.pixelSize: docroot.fontSize
             anchors.verticalCenter: parent.verticalCenter
             font.family: Fonts.simplonNorm_Medium
         }
 
-        Icon
-        {
+        Icon {
             id: iconR
             iconColor: docroot.iconColor
             icon: docroot.icon
@@ -87,153 +82,121 @@ Rectangle
         }
     }
 
-    Loader
-    {
+    Loader {
         id: loader
-        active:docroot.loading
+        active: docroot.loading
         anchors.fill: parent
-        sourceComponent:
-        Rectangle
-        {
+        sourceComponent: Rectangle {
             id: loadingIndicator
             visible: false
             opacity: 0
             color: docroot.color
 
-            LoadingIndicator
-            {
+            LoadingIndicator {
                 baseSize: 8
                 baseColor: Colors.white_op50
             }
         }
     }
 
-    MouseArea
-    {
-       id: mouseArea
-       anchors.fill: parent
-       onClicked: docroot.clicked()
-       hoverEnabled: true
+    MouseArea {
+        id: mouseArea
+        anchors.fill: parent
+        onClicked: docroot.clicked()
+        hoverEnabled: true
     }
 
-    Loader
-    {
+    Loader {
         active: docroot.toolTipText !== ""
-        sourceComponent:
-        TooltipFlyout
-        {
+        sourceComponent: TooltipFlyout {
             id: toolTip
             text: docroot.toolTipText
             isHovered: mouseArea.containsMouse
         }
     }
 
-    states:
-    [
-        State
-        {
-            name:"loading"
-            when:docroot.loading
+    states: [
+        State {
+            name: "loading"
+            when: docroot.loading
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: loader.item
-                opacity:1
+                opacity: 1
                 visible: true
-
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: mouseArea
                 enabled: false
             }
         },
 
-        State
-        {
-            name:"disabled"
-            when:!docroot.enabled
-            PropertyChanges
-            {
+        State {
+            name: "disabled"
+            when: !docroot.enabled
+            PropertyChanges {
                 target: docroot
                 opacity: .3
             }
         },
-        State
-        {
-            name:"pressed"
+        State {
+            name: "pressed"
             when: mouseArea.pressed
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: docroot
                 color: docroot.transparent ? "transparent" : Colors.darkBlue
             }
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: layout
                 opacity: 1
             }
         },
-        State
-        {
-            name:"hover"
+        State {
+            name: "hover"
             when: mouseArea.containsMouse
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: layout
                 opacity: 1
             }
         },
-        State
-        {
-            name:"checked"
+        State {
+            name: "checked"
             when: docroot.checkable && docroot.checked
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: layout
                 opacity: 1
             }
         }
     ]
 
-    transitions:
-    [
+    transitions: [
 
-        Transition
-        {
-            to:"loading"
+        Transition {
+            to: "loading"
             reversible: true
-            PropertyAction
-            {
+            PropertyAction {
                 property: "active"
                 target: loader
             }
 
-            PropertyAction
-            {
+            PropertyAction {
                 property: "visible"
                 target: loader.item
             }
-            SequentialAnimation
-            {
-                NumberAnimation
-                {
+            SequentialAnimation {
+                NumberAnimation {
                     property: "opacity"
                     target: loader.item
                 }
-
             }
         },
 
-
-        Transition
-        {
+        Transition {
             from: "pressed"
-            to:"hover"
+            to: "hover"
 
-            NumberAnimation
-            {
+            NumberAnimation {
                 property: "opacity"
             }
 
@@ -243,18 +206,15 @@ Rectangle
             }
         },
 
-        Transition
-        {
+        Transition {
             from: "hover"
-            to:""
+            to: ""
 
-            NumberAnimation
-            {
+            NumberAnimation {
                 property: "opacity"
             }
 
-            ColorAnimation
-            {
+            ColorAnimation {
                 target: docroot
                 duration: 200
             }

@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,16 +16,13 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
 import UIControls 1.0
 
-AbstractButton
-{
+AbstractButton {
     id: docroot
 
     property string iconChar
@@ -41,32 +40,27 @@ AbstractButton
     width: 30
     height: 25
 
-
-    MouseArea
-    {
+    MouseArea {
         id: mouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onClicked:
-        {
+        onClicked: {
             docroot.clicked()
-            if(docroot.checkable)
-            {
-               // docroot.checked = !docroot.checked
+            if (docroot.checkable) {
+
+                // docroot.checked = !docroot.checked
             }
         }
     }
 
-    Rectangle
-    {
+    Rectangle {
         id: background
-        width: parent.width +4
+        width: parent.width + 4
         height: parent.height
         border.color: docroot.borderVisible ? docroot.borderColor : "transparent"
         color: "transparent"
         radius: 4
     }
-
 
     InnerShadow {
         id: shadow
@@ -82,25 +76,22 @@ AbstractButton
         visible: false
     }
 
-    Rectangle
-    {
+    Rectangle {
         id: hoverLayer
         anchors.fill: background
         radius: background.radius
         opacity: .0
     }
 
-    Rectangle
-    {
+    Rectangle {
         id: line
         visible: docroot.borderVisible
-        width:1
+        width: 1
         height: parent.height
         color: docroot.borderColor
     }
 
-    Icon
-    {
+    Icon {
         id: icon
         anchors.centerIn: parent
         icon: docroot.iconChar
@@ -109,62 +100,50 @@ AbstractButton
         opacity: 0.4
     }
 
-    Item
-    {
+    Item {
         id: directionStates
 
-        states:
-        [
-            State
-            {
+        states: [
+            State {
                 name: "left"
                 when: docroot.alignment == Qt.AlignLeft
-                AnchorChanges
-                {
+                AnchorChanges {
                     target: line
                     anchors.right: parent.right
                 }
             },
-            State
-            {
+            State {
                 name: "right"
                 when: docroot.alignment == Qt.AlignRight
-                AnchorChanges
-                {
+                AnchorChanges {
                     target: background
                     anchors.right: parent.right
                 }
             },
-            State
-            {
+            State {
                 name: "center"
                 when: docroot.alignment == Qt.AlignCenter
 
-                PropertyChanges
-                {
+                PropertyChanges {
                     target: line
                     visible: false
                 }
 
-                PropertyChanges
-                {
+                PropertyChanges {
                     target: background
                     radius: 0
                 }
             },
-            State
-            {
+            State {
                 name: "single"
                 when: docroot.alignment < 0
 
-                PropertyChanges
-                {
+                PropertyChanges {
                     target: line
                     visible: false
                 }
 
-                PropertyChanges
-                {
+                PropertyChanges {
                     target: background
                     width: docroot.width
                 }
@@ -172,66 +151,50 @@ AbstractButton
         ]
     }
 
-
-
-
-    TooltipFlyout
-    {
+    TooltipFlyout {
         id: toolTip
         text: docroot.toolTipText
         isHovered: mouseArea.containsMouse
     }
 
-
-
-    states:
-    [
-        State
-        {
-            name:"checked"
+    states: [
+        State {
+            name: "checked"
             when: docroot.checked
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: hoverLayer
                 opacity: 0
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: shadow
                 visible: true
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: background
                 color: docroot.checkedBackgroundColor
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: icon
                 iconColor: docroot.iconCheckedColor
                 opacity: 1
             }
         },
-        State
-        {
-            name:"hover"
+        State {
+            name: "hover"
             when: mouseArea.containsMouse
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: hoverLayer
                 opacity: .05
             }
 
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: icon
                 opacity: .7
                 iconColor: docroot.iconCheckedColor
             }
         }
     ]
-
 }

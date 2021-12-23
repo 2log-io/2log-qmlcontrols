@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,90 +16,74 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 
-Item
-{
-   id: docroot
+Item {
+    id: docroot
 
-   signal clicked()
+    signal clicked
 
-   property alias iconColor: icon.iconColor
-   property alias icon: icon.icon
-   property alias iconSize: icon.iconSize
-   property alias iconOpacity: icon.opacity
-   property bool selected: false
-  // property bool containsMouse: area.containsMouse
-   property alias area: area
-   property string toolTipText
-   property int toolTipDelay: 1000
+    property alias iconColor: icon.iconColor
+    property alias icon: icon.icon
+    property alias iconSize: icon.iconSize
+    property alias iconOpacity: icon.opacity
+    property bool selected: false
+    // property bool containsMouse: area.containsMouse
+    property alias area: area
+    property string toolTipText
+    property int toolTipDelay: 1000
 
+    width: 40
+    height: 40
 
-   width: 40
-   height: 40
-
-   Icon
-   {
+    Icon {
         id: icon
         anchors.centerIn: parent
-   }
+    }
 
+    Rectangle {
+        id: background
+        anchors.fill: parent
+        color: Colors.white
+        opacity: 0
+    }
 
-   Rectangle
-   {
-       id: background
-       anchors.fill: parent
-       color: Colors.white
-       opacity: 0
-   }
-
-   MouseArea
-   {
+    MouseArea {
         id: area
         hoverEnabled: true
         anchors.fill: parent
         onClicked: docroot.clicked()
-   }
+    }
 
-   Loader
-   {
-       anchors.fill: parent
-       active: docroot.toolTipText !== ""
+    Loader {
+        anchors.fill: parent
+        active: docroot.toolTipText !== ""
 
-       sourceComponent:
-       TooltipFlyout
-       {
-           isHovered: area.containsMouse
-           text: docroot.toolTipText
-           delay: docroot.toolTipDelay
-       }
-   }
+        sourceComponent: TooltipFlyout {
+            isHovered: area.containsMouse
+            text: docroot.toolTipText
+            delay: docroot.toolTipDelay
+        }
+    }
 
-   states:
-   [
-       State
-       {
-           when: docroot.selected
-           name:"checked"
-           PropertyChanges
-           {
-               target: background
-               opacity: .1
-           }
-       },
-       State
-       {
-           name:"hover"
-           when: area.containsMouse
+    states: [
+        State {
+            when: docroot.selected
+            name: "checked"
+            PropertyChanges {
+                target: background
+                opacity: .1
+            }
+        },
+        State {
+            name: "hover"
+            when: area.containsMouse
 
-           PropertyChanges
-           {
-               target: background
-                  opacity: .05
-           }
-       }
-   ]
+            PropertyChanges {
+                target: background
+                opacity: .05
+            }
+        }
+    ]
 }

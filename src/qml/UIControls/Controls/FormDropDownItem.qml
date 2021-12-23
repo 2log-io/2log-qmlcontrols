@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,13 +16,10 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 
-QtObject
-{
+QtObject {
     readonly property int type: 1
     property int selectedIndex: -1
     property string placeholder
@@ -31,4 +30,3 @@ QtObject
     property bool mandatory: false
     property int editedSelectedIndex: selectedIndex
 }
-

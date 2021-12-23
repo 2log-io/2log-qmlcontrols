@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,15 +16,12 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.13
 import UIControls 1.0
 import QtQuick.Controls 2.0
 import "../Helper"
 
-Item
-{
+Item {
     id: docroot
 
     height: 40
@@ -38,7 +37,7 @@ Item
     property alias icon: icon.icon
     property int iconSpacing: 6
     property alias fontSize: input.font.pixelSize
-    property var options:[]
+    property var options: []
     property bool mandatory
     property bool acceptableInput: !(mandatory && selectedIndex < 0)
     property alias selectedIndex: optionsView.selectedIndex
@@ -49,22 +48,20 @@ Item
     property string editedText
 
     signal inputCompleted(string input)
-    onActiveFocusChanged: if(activeFocus) input.forceActiveFocus()
+    onActiveFocusChanged: if (activeFocus)
+                              input.forceActiveFocus()
     signal indexClicked(int index)
-    signal accepted()
+    signal accepted
 
-    function reset()
-    {
+    function reset() {
         optionsView.model = docroot.options
         docroot.editedText = ""
         input.text = ""
         docroot.text = ""
     }
 
-    function check()
-    {
-        if(!docroot.acceptableInput)
-        {
+    function check() {
+        if (!docroot.acceptableInput) {
             line.color = Colors.grey
             errorAnimation.start()
         }
@@ -72,104 +69,119 @@ Item
     }
 
     KeyNavigation.tab: docroot.nextOnTab
-    Keys.onPressed:
-    {
+    Keys.onPressed: {
         var index = docroot.selectedIndex
-        switch(event.key)
-        {
-            case Qt.Key_Return:
-                if(dummy.activeFocus)
-                {
-                    docroot.inputCompleted(optionsView.model[docroot.selectedIndex])
-                    input.text = optionsView.model[docroot.selectedIndex]
-                }
-                popup.close()
-                dummy.forceActiveFocus()
-                return;
-
-            case Qt.Key_Tab:
-                popup.close()
-                event.accepted = false
-                return
-
-            case Qt.Key_Backtab:
-                popup.close()
-                event.accepted = false
-                return
-            case Qt.Key_Up:
-                index--
-                break;
-            case Qt.Key_Down:
-            {
-                index++
-                if(optionsView.model.length === 0)
-                    optionsView.model = docroot.options
-                popup.open()
+        switch (event.key) {
+        case Qt.Key_Return:
+            if (dummy.activeFocus) {
+                docroot.inputCompleted(optionsView.model[docroot.selectedIndex])
+                input.text = optionsView.model[docroot.selectedIndex]
             }
+            popup.close()
+            dummy.forceActiveFocus()
+            return
+        case Qt.Key_Tab:
+            popup.close()
+            event.accepted = false
+            return
+        case Qt.Key_Backtab:
+            popup.close()
+            event.accepted = false
+            return
+        case Qt.Key_Up:
+            index--
+            break
+        case Qt.Key_Down:
+        {
+            index++
+            if (optionsView.model.length === 0)
+                optionsView.model = docroot.options
+            popup.open()
+        }
         }
 
-
-        if(index === optionsView.model.length)
-        {
+        if (index === optionsView.model.length) {
             docroot.selectedIndex = -1
             input.forceActiveFocus()
-        }
-        else if(index === -1)
-        {
+        } else if (index === -1) {
             docroot.selectedIndex = index
             input.forceActiveFocus()
-        }
-        else if(index === -2)
-        {
-            docroot.selectedIndex = optionsView.model.length-1
+        } else if (index === -2) {
+            docroot.selectedIndex = optionsView.model.length - 1
             dummy.forceActiveFocus()
-        }
-        else
-        {
+        } else {
             docroot.selectedIndex = index
             dummy.forceActiveFocus()
         }
-
     }
 
-    TextInput{id: dummy; visible: false}
+    TextInput {
+        id: dummy
+        visible: false
+    }
 
-    SequentialAnimation
-    {
+    SequentialAnimation {
         id: errorAnimation
-        ColorAnimation {target: line; property:"color"; from: Colors.lightGrey; to: Colors.warnRed; duration: 50}
-        PauseAnimation {duration: 200}
-        ColorAnimation {target: line; property:"color"; to: Colors.lightGrey; from: Colors.warnRed; duration: 50}
-        PauseAnimation {duration: 100}
-        ColorAnimation {target: line; property:"color"; from: Colors.lightGrey; to: Colors.warnRed; duration: 50}
-        PauseAnimation {duration: 200}
-        ColorAnimation {target: line; property:"color"; to: Colors.lightGrey; from: Colors.warnRed; duration: 50}
-        onRunningChanged: if(!running) line.color = Qt.binding(function(){return docroot.stateColor})
+        ColorAnimation {
+            target: line
+            property: "color"
+            from: Colors.lightGrey
+            to: Colors.warnRed
+            duration: 50
+        }
+        PauseAnimation {
+            duration: 200
+        }
+        ColorAnimation {
+            target: line
+            property: "color"
+            to: Colors.lightGrey
+            from: Colors.warnRed
+            duration: 50
+        }
+        PauseAnimation {
+            duration: 100
+        }
+        ColorAnimation {
+            target: line
+            property: "color"
+            from: Colors.lightGrey
+            to: Colors.warnRed
+            duration: 50
+        }
+        PauseAnimation {
+            duration: 200
+        }
+        ColorAnimation {
+            target: line
+            property: "color"
+            to: Colors.lightGrey
+            from: Colors.warnRed
+            duration: 50
+        }
+        onRunningChanged: if (!running)
+                              line.color = Qt.binding(function () {
+                                  return docroot.stateColor
+                              })
     }
 
-
-    MouseArea
-    {
+    MouseArea {
         id: mouseArea
         hoverEnabled: true
         anchors.fill: parent
-        onClicked:
-        {
-            if(!popup.opened)
-                 optionsView.model = docroot.options
+        onClicked: {
+            if (!popup.opened)
+                optionsView.model = docroot.options
             popup.open()
             docroot.forceActiveFocus()
-
         }
     }
 
-    Item
-    {
+    Item {
         height: 35
         width: parent.width
 
-        Icon
-        {
+        Icon {
             id: icon
             height: iconSize
             width: iconSize
@@ -179,25 +191,28 @@ Item
             iconSize: input.font.pixelSize
         }
 
-        TextInput
-        {
+        TextInput {
             id: input
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.rightMargin: 20
-            anchors.leftMargin:  icon.icon !== "" ? font.pixelSize + docroot.iconSpacing : 0
+            anchors.leftMargin: icon.icon !== "" ? font.pixelSize + docroot.iconSpacing : 0
             font.pixelSize: Fonts.controlFontSize
             font.family: Fonts.simplonNorm_Medium
             color: Colors.white
 
             onAccepted: docroot.inputCompleted(text)
-            onActiveFocusChanged: if(activeFocus) {popup.open(); docroot.selectedIndex = -1}
-            onTextEdited: popup.sort();
-            onTextChanged:{ docroot.editedText = text; }
+            onActiveFocusChanged: if (activeFocus) {
+                                      popup.open()
+                                      docroot.selectedIndex = -1
+                                  }
+            onTextEdited: popup.sort()
+            onTextChanged: {
+                docroot.editedText = text
+            }
 
-            TextLabel
-            {
+            TextLabel {
                 visible: input.text === ""
                 anchors.fill: input
                 text: docroot.placeholderText
@@ -207,8 +222,7 @@ Item
             }
         }
 
-        Rectangle
-        {
+        Rectangle {
             id: line
             height: 1
             width: parent.width
@@ -217,8 +231,7 @@ Item
             color: docroot.hideLine ? "transparent" : docroot.stateColor
         }
 
-        Icon
-        {
+        Icon {
             id: arrowIcon
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
@@ -228,136 +241,113 @@ Item
             visible: !docroot.lineOnHover
         }
 
-        states:
-        [
-            State
-            {
-                when:!docroot.enabled
-                name:"disabled"
+        states: [
+            State {
+                when: !docroot.enabled
+                name: "disabled"
 
-                PropertyChanges
-                {
+                PropertyChanges {
 
                     target: docroot
                     opacity: .3
                 }
             },
-            State
-            {
+            State {
                 when: input.activeFocus
-                name:"textselected"
-                PropertyChanges
-                {
+                name: "textselected"
+                PropertyChanges {
                     target: docroot
                     stateColor: Colors.highlightBlue
                     opacity: 1
                 }
-                PropertyChanges
-                {
+                PropertyChanges {
                     target: arrowIcon
                     iconColor: Colors.white
                     visible: true
                 }
             },
-            State
-            {
+            State {
                 when: popup.opened
-                name:"focus"
-                PropertyChanges
-                {
+                name: "focus"
+                PropertyChanges {
                     target: docroot
                     stateColor: Colors.white
                 }
 
-                PropertyChanges
-                {
+                PropertyChanges {
                     target: arrowIcon
                     iconColor: Colors.white
                     visible: true
                 }
             },
-            State
-            {
+            State {
                 when: mouseArea.containsMouse
-                name:"hover"
-                PropertyChanges
-                {
+                name: "hover"
+                PropertyChanges {
                     target: docroot
-                    stateColor: docroot.hideLine ? Colors.lightGrey :  Colors.white
+                    stateColor: docroot.hideLine ? Colors.lightGrey : Colors.white
                 }
 
-                PropertyChanges
-                {
+                PropertyChanges {
                     target: arrowIcon
-                    iconColor:   Colors.white
+                    iconColor: Colors.white
                     visible: true
                 }
             }
         ]
 
-        transitions:
-        [
-            Transition
-            {
+        transitions: [
+            Transition {
                 from: "hover, focus"
 
-                ColorAnimation
-                {
-                    targets:[ docroot, arrowIcon]
+                ColorAnimation {
+                    targets: [docroot, arrowIcon]
                 }
             }
         ]
     }
 
-    Popup
-    {
+    Popup {
         id: popup
         padding: 0
         width: parent.width
-        background: Item{}
+        background: Item {}
         height: optionsView.contentHeight + 0
         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
         y: line.y + 1
 
-        Rectangle
-        {
+        Rectangle {
             anchors.fill: parent
             color: Colors.darkBlue
-            Rectangle
-            {
-                anchors.fill:  parent
-                color:"black"
+            Rectangle {
+                anchors.fill: parent
+                color: "black"
                 opacity: .1
             }
 
-            Shadow
-            {
+            Shadow {
                 shadowSize: 4
                 opacity: 0.2
                 shadowTop: false
             }
         }
 
-        function sort()
-        {
+        function sort() {
             var sorted = []
-            docroot.options.forEach(function f(item,index)
-                                    {
-                                        if(item.toLowerCase().startsWith(input.text.toLowerCase()))
-                                            sorted.push(item)
-                                    })
+            docroot.options.forEach(function f(item, index) {
+                if (item.toLowerCase().startsWith(input.text.toLowerCase()))
+                    sorted.push(item)
+            })
 
             optionsView.model = sorted
         }
 
-        DropDownChooser
-        {
+        DropDownChooser {
             id: optionsView
             anchors.fill: parent
             model: docroot.options
-            fontSize:  input.font.pixelSize
-            onClicked:
-            {
+            fontSize: input.font.pixelSize
+            onClicked: {
                 popup.close()
                 dummy.forceActiveFocus()
                 docroot.indexClicked(index)

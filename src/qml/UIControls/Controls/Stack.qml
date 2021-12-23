@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,94 +16,116 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
-
 import QtQuick.Controls 2.5
 import QtQuick 2.12
 
-StackView
-{
+StackView {
     id: stackView
-    clip:true
+    clip: true
     padding: 0
 
-    replaceEnter:
-    Transition
-    {
-        SequentialAnimation
-        {
-            PropertyAction
-            {
+    replaceEnter: Transition {
+        SequentialAnimation {
+            PropertyAction {
                 property: "opacity"
                 value: 0
             }
-            PauseAnimation
-            {
+            PauseAnimation {
                 duration: 100
             }
 
-            OpacityAnimator
-            {
-                from: 0;
-                to: 1;
+            OpacityAnimator {
+                from: 0
+                to: 1
                 duration: 100
             }
         }
     }
 
-    replaceExit:
-    Transition
-    {
-        OpacityAnimator
-        {
-            from: 1;
-            to: 0.3;
+    replaceExit: Transition {
+        OpacityAnimator {
+            from: 1
+            to: 0.3
             duration: 100
         }
 
-        PauseAnimation
-        {
+        PauseAnimation {
             duration: 100
         }
     }
     pushEnter: Transition {
         id: pushEnter
-        ParallelAnimation
-        {
+        ParallelAnimation {
 
-            XAnimator {  from: pushEnter.ViewTransition.item.width; to:0; duration: 400; easing.type: Easing.OutCubic }
-            NumberAnimation { from: 0; to: 1; duration: 400; easing.type: Easing.OutCubic ; properties: "opacity" }
-
+            XAnimator {
+                from: pushEnter.ViewTransition.item.width
+                to: 0
+                duration: 400
+                easing.type: Easing.OutCubic
+            }
+            NumberAnimation {
+                from: 0
+                to: 1
+                duration: 400
+                easing.type: Easing.OutCubic
+                properties: "opacity"
+            }
         }
     }
     pushExit: Transition {
         id: pushExit
-        ParallelAnimation
-        {
-            XAnimator { from: 0; to: -pushEnter.ViewTransition.item.width; duration: 400;  easing.type: Easing.OutCubic}
-            NumberAnimation { from: 1; to: 0; duration: 400; easing.type: Easing.OutCubic ; properties: "opacity" }
+        ParallelAnimation {
+            XAnimator {
+                from: 0
+                to: -pushEnter.ViewTransition.item.width
+                duration: 400
+                easing.type: Easing.OutCubic
+            }
+            NumberAnimation {
+                from: 1
+                to: 0
+                duration: 400
+                easing.type: Easing.OutCubic
+                properties: "opacity"
+            }
         }
     }
 
-
     popEnter: Transition {
         id: popEnter
-        ParallelAnimation
-        {
-            XAnimator{from: -pushEnter.ViewTransition.item.width; to:0; duration: 400;easing.type: Easing.OutCubic}
-            NumberAnimation { from: 0; to: 1; duration: 400; easing.type: Easing.OutCubic ; properties: "opacity" }
-
+        ParallelAnimation {
+            XAnimator {
+                from: -pushEnter.ViewTransition.item.width
+                to: 0
+                duration: 400
+                easing.type: Easing.OutCubic
+            }
+            NumberAnimation {
+                from: 0
+                to: 1
+                duration: 400
+                easing.type: Easing.OutCubic
+                properties: "opacity"
+            }
         }
     }
 
     popExit: Transition {
         id: popExit
         ParallelAnimation {
-            XAnimator{ from: 0; to: pushEnter.ViewTransition.item.width; duration: 400; easing.type: Easing.OutCubic }
-           NumberAnimation { from: 1; to: 0; duration: 400; easing.type: Easing.OutCubic ; properties: "opacity" }
-
+            XAnimator {
+                from: 0
+                to: pushEnter.ViewTransition.item.width
+                duration: 400
+                easing.type: Easing.OutCubic
+            }
+            NumberAnimation {
+                from: 1
+                to: 0
+                duration: 400
+                easing.type: Easing.OutCubic
+                properties: "opacity"
+            }
         }
     }
 }
-

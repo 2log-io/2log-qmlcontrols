@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,34 +16,28 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.0
 import QtQuick.Controls 2.12
 import UIControls 1.0
 
-BigActionButton
-{
+BigActionButton {
 
     id: docroot
     property string buttonIcon: Icons.rightAngle
 
-    Row
-    {
+    Row {
         anchors.left: parent.left
         anchors.margins: 30
         anchors.verticalCenter: parent.verticalCenter
         spacing: 10
 
-        TextLabel
-        {
+        TextLabel {
             text: docroot.text
             fontSize: Fonts.bigDisplayFontSize
             anchors.verticalCenter: parent.verticalCenter
         }
 
-        TextLabel
-        {
+        TextLabel {
             text: "EUR"
             fontSize: Fonts.bigDisplayUnitFontSize
             color: Colors.lightGrey
@@ -49,8 +45,7 @@ BigActionButton
         }
     }
 
-    Icon
-    {
+    Icon {
         id: icon
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter

@@ -46,7 +46,6 @@
         <file>qml/UIControls/Helper/BaseDelegate.qml</file>
         <file>qml/UIControls/Helper/CardReader.qml</file>
         <file>qml/UIControls/Helper/CounterBubble.qml</file>
-        <file>qml/UIControls/Helper/Defines.qml</file>
         <file>qml/UIControls/Helper/DropDownChooser.qml</file>
         <file>qml/UIControls/Helper/FlyoutHelper.qml</file>
         <file>qml/UIControls/Helper/HelperFunctions.qml</file>
@@ -60,7 +59,6 @@
         <file>qml/UIControls/Styling/DebugImage.qml</file>
         <file>qml/UIControls/Styling/Fonts.qml</file>
         <file>qml/UIControls/Styling/Icons.qml</file>
-        <file>qml/UIControls/IconButton.qml</file>
         <file>qml/UIControls/qmldir</file>
         <file>qml/UIControls/README.md</file>
         <file>qml/UIControls/Controls/LoadingIndicator.qml</file>

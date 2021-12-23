@@ -1,3 +1,5 @@
+
+
 /*   2log.io
  *   Copyright (C) 2021 - 2log.io | mail@2log.io,  mail@friedemann-metzger.de
  *
@@ -14,69 +16,57 @@
  *   You should have received a copy of the GNU Affero General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 import QtQuick 2.5
 import UIControls 1.0
 import QtQuick.Layouts 1.2
 
-Rectangle
-{
-   id: docroot
+Rectangle {
+    id: docroot
 
-   width: 28
-   height: 28
-   Layout.minimumWidth: width
-   Layout.minimumHeight:height
-   Layout.maximumHeight: height
-   Layout.maximumWidth: width
-   border.color: Colors.lightGrey
-   border.width: 1
-   color: Colors.darkBlue
+    width: 28
+    height: 28
+    Layout.minimumWidth: width
+    Layout.minimumHeight: height
+    Layout.maximumHeight: height
+    Layout.maximumWidth: width
+    border.color: Colors.lightGrey
+    border.width: 1
+    color: Colors.darkBlue
 
-   property bool checked: false
+    property bool checked: false
 
-   Icon
-   {
-       visible: docroot.checked
-       anchors.centerIn: parent
-       icon: Icons.check
-       iconSize: 14
-   }
+    Icon {
+        visible: docroot.checked
+        anchors.centerIn: parent
+        icon: Icons.check
+        iconSize: 14
+    }
 
-   MouseArea
-   {
-       id: mouse
-       hoverEnabled: true
-       anchors.fill: parent
-       onClicked: docroot.checked = !docroot.checked
-   }
+    MouseArea {
+        id: mouse
+        hoverEnabled: true
+        anchors.fill: parent
+        onClicked: docroot.checked = !docroot.checked
+    }
 
-
-   states:
-   [
-       State
-       {
-           name:"hover"
+    states: [
+        State {
+            name: "hover"
             when: mouse.containsMouse
-            PropertyChanges
-            {
+            PropertyChanges {
                 target: docroot.border
                 color: Colors.white
             }
-       }
-   ]
+        }
+    ]
 
-   transitions:
-   [
-       Transition
-       {
-           from: "hover, focus"
+    transitions: [
+        Transition {
+            from: "hover, focus"
 
-           ColorAnimation
-           {
-               target: docroot.border
-           }
-       }
-   ]
+            ColorAnimation {
+                target: docroot.border
+            }
+        }
+    ]
 }
