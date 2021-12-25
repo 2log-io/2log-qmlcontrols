@@ -83,6 +83,7 @@ Item {
     readonly property string earth: ""
     readonly property string offline: ""
     readonly property string payDesk: ""
+    readonly property string banknote: ""
 
     readonly property string products: ""
     readonly property string lockOpen: ""
@@ -96,6 +97,9 @@ Item {
     readonly property string infoRound: ""
     readonly property string question: ""
 
+    //readonly property string warning: ""
+
+    //readonly property string card: ""
     property int iconSize24: scale(24)
     property int iconSize300: scale(300)
 
