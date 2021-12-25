@@ -33,7 +33,9 @@ Rectangle {
     border.width: 1
     color: Colors.darkBlue
 
+    signal clicked
     property bool checked: false
+    property bool intercept: false
 
     Icon {
         visible: docroot.checked
@@ -46,7 +48,12 @@ Rectangle {
         id: mouse
         hoverEnabled: true
         anchors.fill: parent
-        onClicked: docroot.checked = !docroot.checked
+        onClicked: {
+            docroot.clicked()
+
+            if (!intercept)
+                docroot.checked = !docroot.checked
+        }
     }
 
     states: [
