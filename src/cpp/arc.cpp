@@ -178,7 +178,7 @@ QSGNode *RoundArc::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
         _arcNode = new QSGGeometryNode;
 
         _arcGeometry = new QSGGeometry(QSGGeometry::defaultAttributes_Point2D(), arcPointsCount);
-        _arcGeometry->setDrawingMode(GL_TRIANGLE_STRIP);
+        _arcGeometry->setDrawingMode(QSGGeometry::DrawTriangleStrip);
         _arcNode->setGeometry(_arcGeometry);
         _arcNode->setFlag(QSGNode::OwnsGeometry);
 

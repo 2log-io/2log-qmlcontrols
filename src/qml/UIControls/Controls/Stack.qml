@@ -58,7 +58,9 @@ StackView {
         ParallelAnimation {
 
             XAnimator {
-                from: pushEnter.ViewTransition.item.width
+
+                from: pushEnter.ViewTransition.item
+                      === null ? 0 : pushEnter.ViewTransition.item.width
                 to: 0
                 duration: 400
                 easing.type: Easing.OutCubic

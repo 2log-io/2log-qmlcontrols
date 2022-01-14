@@ -55,7 +55,9 @@ Item {
     function transparentColor(color, opacity) {
         var number = Math.round((opacity / 100) * 255)
         number = number.toString(16)
-        var result = "#" + number + color.toString(16).slice(1)
+        var tmp = color.toString()
+        tmp = tmp.slice(1)
+        var result = "#" + number + tmp
 
         return result
     }

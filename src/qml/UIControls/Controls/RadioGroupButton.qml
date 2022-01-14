@@ -19,7 +19,7 @@
 import QtQuick 2.5
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 import UIControls 1.0
 
 AbstractButton {
@@ -62,20 +62,19 @@ AbstractButton {
         radius: 4
     }
 
-    InnerShadow {
-        id: shadow
-        anchors.fill: background
-        anchors.margins: 1
-        radius: 8.0
-        opacity: docroot.shadowOpacity
-        samples: 16
-        horizontalOffset: -3
-        verticalOffset: 3
-        color: "#b0000000"
-        source: background
-        visible: false
-    }
-
+    //    InnerShadow {
+    //        id: shadow
+    //        anchors.fill: background
+    //        anchors.margins: 1
+    //        radius: 8.0
+    //        opacity: docroot.shadowOpacity
+    //        samples: 16
+    //        horizontalOffset: -3
+    //        verticalOffset: 3
+    //        color: "#b0000000"
+    //        source: background
+    //        visible: false
+    //    }
     Rectangle {
         id: hoverLayer
         anchors.fill: background
@@ -164,11 +163,6 @@ AbstractButton {
             PropertyChanges {
                 target: hoverLayer
                 opacity: 0
-            }
-
-            PropertyChanges {
-                target: shadow
-                visible: true
             }
 
             PropertyChanges {

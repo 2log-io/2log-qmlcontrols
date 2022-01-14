@@ -27,8 +27,12 @@ Item {
     property int state
     property string mapping
     property string lastCardID
-    Component.onCompleted: if (isMobile)
+    Component.onCompleted: if (isMobile) {
                                nfcReader.startRead()
+                               console.log("start reader...")
+                           } else {
+                               console.log("damn shit")
+                           }
 
     SynchronizedObjectModel {
         id: settingsModel
@@ -63,7 +67,7 @@ Item {
     Connections {
         enabled: isMobile
         target: enabled ? nfcReader : null
-        onUidRead: {
+        function onUidRead(uid) {
             docroot.lastCardID = uid
             labService.call("getUserForCard", {
                                 "cardID": docroot.lastCardID
