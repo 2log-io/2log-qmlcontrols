@@ -179,7 +179,7 @@ Item {
 
                 Connections {
                     target: item
-                    onCheckedChanged: {
+                    function onCheckedChanged() {
                         item.dirty = (checkBox.checked !== item.checked)
                         checkDirty()
                     }
