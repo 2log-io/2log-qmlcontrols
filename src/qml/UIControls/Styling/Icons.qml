@@ -34,6 +34,7 @@ Item {
     readonly property string minus: ""
     readonly property string plus: ""
     readonly property string check: ""
+    readonly property string cart: ""
     readonly property string leftArrow: ""
     readonly property string downArrow: ""
     readonly property string lasercutter: ""
