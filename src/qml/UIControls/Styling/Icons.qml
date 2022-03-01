@@ -44,6 +44,7 @@ Item {
     readonly property string userSuccess: ""
     readonly property string handTool: ""
     readonly property string userDelete: ""
+    readonly property string cart: ""
     //readonly property string user: ""
     readonly property string settings: ""
     readonly property string save: ""

@@ -22,6 +22,7 @@ import UIControls 1.0
 
 AbstractButton {
     id: docroot
+    property alias backgroundColor: background.color
     Rectangle {
         id: background
         anchors.fill: parent
