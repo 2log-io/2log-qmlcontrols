@@ -21,9 +21,9 @@ import QtQuick 2.5
 
 Item {
     readonly property color greyBlue: "#485058"
-    readonly property color darkBlue: "#2e3439"
+    readonly property color darkBlue: "#182129"
     readonly property color backgroundDarkBlue: "#202428"
-    readonly property color warnRed: "#fb908e"
+    readonly property color warnRed: "#e6605e"
     readonly property color deleteRed: "#c4381f"
     readonly property color black: "#000"
     readonly property color okGreen: "#3bad03"

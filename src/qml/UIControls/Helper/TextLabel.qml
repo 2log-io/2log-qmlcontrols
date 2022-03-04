@@ -23,7 +23,7 @@ Text {
     property int fontSize: Fonts.contentFontSize
     elide: Text.ElideRight
     font.family: Fonts.simplonNorm_Regular
-    font.styleName: "Regular"
+    font.styleName: "Light"
     font.pixelSize: fontSize
     color: Colors.white
 }

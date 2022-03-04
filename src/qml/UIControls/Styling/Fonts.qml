@@ -54,11 +54,11 @@ Item {
 
     readonly property var iconFont: fontAwesome_free_solid_loader.name
 
-    readonly property int headerFontSze: 20
-    readonly property int subHeaderFontSize: 16
-    readonly property int contentFontSize: 15
+    readonly property int headerFontSze: 24
+    readonly property int subHeaderFontSize: 20
+    readonly property int contentFontSize: 18
     readonly property int smallControlFontSize: 14
-    readonly property int verySmallControlFontSize: 12
+    readonly property int verySmallControlFontSize: 16
     readonly property int listDelegateSize: contentFontSize
     readonly property int controlFontSize: contentFontSize
     readonly property int bigDisplayFontSize: 36
